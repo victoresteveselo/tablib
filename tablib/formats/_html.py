@@ -28,6 +28,11 @@ def export_set(dataset):
     stream = StringIO()
 
     page = markup.page()
+    page.head.open()
+    new_styling = "table {  border-collapse: collapse;} th {  background: #ccc;}th, td {  border: 1px solid #ccc;  padding: 8px;}tr:nth-child(even) {  background: #efefef;}"
+    styling = markup.oneliner.style(new_styling)
+    page.style(new_styling)
+    page.head.close()
     page.table.open()
 
     if dataset.headers is not None:
